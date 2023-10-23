@@ -15,13 +15,10 @@ namespace MessageBoardApi.Models
 
     protected override void OnModelCreating(ModelBuilder builder)
     {
+      //the line below is needed to seed user data
       base.OnModelCreating(builder);
-      // var user = new ApplicationUser
-      // {
-      //   Id= "1",
-      //   UserName = "ScarySpice"
-      // };
       
+
       builder.Entity<Group>()
         .HasData(
           new Group { GroupId = 1, GroupName = "SpiceGirls"}
@@ -35,8 +32,9 @@ namespace MessageBoardApi.Models
 
       builder.Entity<Message>()
         .HasData(
-          new Message { MessageId = 1, MessageTime = messageTime, MessageName = "beMyLova", MessageBody = "gotta get wit my friends", GroupId = 1, UserName = "ScarySpice"}
+          new Message { MessageId = 1, MessageTime = messageTime, MessageName = "beMyLova", MessageBody = "gotta get wit my friends", GroupId = 1, UserId = "ScarySpice"}
         );
     }
   }
 }
+

@@ -13,7 +13,7 @@ namespace MessageBoardApi.Models
     public Group Group { get; set; }
 
     // Foreign Key #2
-    public string UserName { get; set; }
+    public string UserId { get; set; }
     public ApplicationUser User { get; set; }
 
   }

@@ -4,6 +4,6 @@ namespace MessageBoardApi.Models
 {
   public class ApplicationUser : IdentityUser
   {
-    
+   
   }
 }

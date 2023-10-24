@@ -11,8 +11,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace MessageBoardApi.Migrations
 {
     [DbContext(typeof(MessageBoardApiContext))]
-    [Migration("20231023190057_SeedDataAgain")]
-    partial class SeedDataAgain
+    [Migration("20231024165213_AddGeriGroup")]
+    partial class AddGeriGroup
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -39,6 +39,11 @@ namespace MessageBoardApi.Migrations
                         {
                             GroupId = 1,
                             GroupName = "SpiceGirls"
+                        },
+                        new
+                        {
+                            GroupId = 2,
+                            GroupName = "GeriHalliwellSadSoloCareer"
                         });
                 });
 
@@ -108,15 +113,39 @@ namespace MessageBoardApi.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "039b7805-c66d-4485-98a2-ebb8b99a681d",
+                            Id = "d319e46e-7422-4856-b2f4-3df928d460cf",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "2cac92b1-32f8-4855-a96b-d61c0326c038",
+                            ConcurrencyStamp = "c59b1f87-8417-4128-a05b-f5379bed3621",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "db3fc416-3ee6-44b4-9cc4-0fca20676249",
+                            SecurityStamp = "cd7c6854-bcc3-4740-a275-194783708c2e",
                             TwoFactorEnabled = false,
                             UserName = "ScarySpice"
+                        },
+                        new
+                        {
+                            Id = "05e6d1d6-5085-41a7-a707-4aaea6de8118",
+                            AccessFailedCount = 0,
+                            ConcurrencyStamp = "f7dc770f-36a4-44fb-8489-8dcf50c13e48",
+                            EmailConfirmed = false,
+                            LockoutEnabled = false,
+                            PhoneNumberConfirmed = false,
+                            SecurityStamp = "522d5bbc-6fc8-4e92-869c-1c4ffa241803",
+                            TwoFactorEnabled = false,
+                            UserName = "PoshSpice"
+                        },
+                        new
+                        {
+                            Id = "5ed7c91d-dea5-457e-aee3-6f3aad746794",
+                            AccessFailedCount = 0,
+                            ConcurrencyStamp = "fbe25677-7116-42f0-8ea2-57bb4c847e90",
+                            EmailConfirmed = false,
+                            LockoutEnabled = false,
+                            PhoneNumberConfirmed = false,
+                            SecurityStamp = "520c1f5e-e5dd-4cb3-85a3-4477b2bb484b",
+                            TwoFactorEnabled = false,
+                            UserName = "GingerSpice"
                         });
                 });
 
@@ -141,9 +170,6 @@ namespace MessageBoardApi.Migrations
                     b.Property<string>("UserId")
                         .HasColumnType("varchar(255)");
 
-                    b.Property<string>("UserName")
-                        .HasColumnType("longtext");
-
                     b.HasKey("MessageId");
 
                     b.HasIndex("GroupId");
@@ -160,7 +186,7 @@ namespace MessageBoardApi.Migrations
                             MessageBody = "gotta get wit my friends",
                             MessageName = "beMyLova",
                             MessageTime = new DateTime(2023, 10, 5, 12, 1, 42, 0, DateTimeKind.Unspecified),
-                            UserName = "ScarySpice"
+                            UserId = "ScarySpice"
                         });
                 });
 

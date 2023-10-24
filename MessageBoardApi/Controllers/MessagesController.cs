@@ -22,7 +22,9 @@ namespace MessageBoardApi.Controllers
       return await _db.Messages.ToListAsync();
     }
 
-     // GET: api/Messages/1
+
+
+    // GET: api/Messages/1
     [HttpGet("{id}")]
     public async Task<ActionResult<Message>> GetMessage(int id)
     {
@@ -37,7 +39,7 @@ namespace MessageBoardApi.Controllers
       return message;
     }
 
-        // POST api/animals
+    // POST api/animals
     [HttpPost]
     public async Task<ActionResult<Message>> Post(Message message)
     {
@@ -72,7 +74,7 @@ namespace MessageBoardApi.Controllers
           throw;
         }
       }
-      
+
       return NoContent();
     }
 
@@ -97,7 +99,42 @@ namespace MessageBoardApi.Controllers
       return NoContent();
     }
 
+    [HttpGet("/messages")]
+    public async Task<ActionResult<IEnumerable<Message>>> GetMessagesByDate(string fromDate, string toDate)
+    {
+      if (!DateTime.TryParse(fromDate, out DateTime startDate) || !DateTime.TryParse(toDate, out DateTime endDate)) 
+      {
+        return BadRequest("Invalid date format. Use yyyy-MM-dd.");
+      }
+
+      var messages = await _db.Messages
+                .Where(m => m.MessageTime >= startDate && m.MessageTime <= endDate )
+                .ToListAsync();
+
+      if (messages == null)
+      {
+        return NotFound();
+      }
+
+      return messages;
+    }
+//     public async Task<List<Product>> GetByDateBetweenAsync(string fromDate, string toDate)
+// {
+//     var startAt=DateTime.Parse(fromDate);
+//     var endAt=DateTime.Parse(toDate);
+
+//     var sql = $"SELECT * FROM Products WHERE CreatedDate BETWEEN {startAt} AND {endAt}";
+
+//     using (var connection = new SqlConnection(configuration.GetConnectionString("DefaultConnection")))
+//     {
+//         connection.Open();
+//         var result = await connection.QuerySingleOrDefaultAsync<Product>(sql);
+//         return result;
+//     }
+// }
   }
 }
+
+
 
 //comment made on paul branch

@@ -23,9 +23,21 @@ namespace MessageBoardApi.Models
         .HasData(
           new Group { GroupId = 1, GroupName = "SpiceGirls"}
         );
+      builder.Entity<Group>()
+        .HasData(
+          new Group { GroupId = 2, GroupName = "GeriHalliwellSadSoloCareer" }
+        );
       builder.Entity<ApplicationUser>()
         .HasData(
           new ApplicationUser {UserName = "ScarySpice"}
+        );
+      builder.Entity<ApplicationUser>()
+        .HasData(
+          new ApplicationUser {UserName = "PoshSpice"}
+        );
+      builder.Entity<ApplicationUser>()
+        .HasData(
+          new ApplicationUser {UserName = "GingerSpice"}
         );
      
       DateTime messageTime = DateTime.Parse("2023-10-05 12:01:42");

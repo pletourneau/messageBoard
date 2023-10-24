@@ -15,22 +15,33 @@ namespace MessageBoardApi.Controllers
       _db = db;
     }
 
-    [HttpGet("{groupId}/messages")]
-    public async Task<ActionResult<IEnumerable<Message>>> GetMessagesByGroup(int groupId)
-    {
-      // List<Group> messages = await _db.Groups
-      //     .Where(m => m.GroupId == groupId)
-      //     .ToListAsync();
-      var messages = await _db.Messages
-                .Where(m => m.GroupId == groupId)
-                .ToListAsync();
+    // [HttpGet("{groupId}/messages")]
+    // public async Task<ActionResult<IEnumerable<Message>>> GetMessagesByGroup(int groupId)
+    // {
+    //   var messages = await _db.Messages
+    //             .Where(m => m.GroupId == groupId)
+    //             .ToListAsync();
 
-      if (messages == null)
+    //   if (messages == null)
+    //   {
+    //     return NotFound();
+    //   }
+    //   return messages;
+    // }
+    [HttpGet("{groupId}/messages")]
+    public async Task<ActionResult<PaginatedList<Message>>> GetMessagesByGroup(int groupId, int pageIndex = 1, int pageSize = 10)
+    {
+    
+      var messages = _db.Messages.Where(m => m.GroupId == groupId);
+
+      var paginatedMessages = await PaginatedList<Message>.CreateAsync(messages, pageIndex, pageSize);
+
+      if (paginatedMessages.Count == 0)
       {
         return NotFound();
       }
 
-      return messages;
+      return paginatedMessages;
     }
 
     [HttpGet]

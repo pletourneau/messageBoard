@@ -87,12 +87,16 @@ namespace MessageBoardApi.Controllers
 
     // DELETE: api/Messages/5
     [HttpDelete("{id}")]
-    public async Task<IActionResult> DeleteMessage(int id)
+    public async Task<IActionResult> DeleteMessage(int id, string deleteUserName)
     {
       Message message = await _db.Messages.FindAsync(id);
       if (message == null)
       {
         return NotFound();
+      }
+      else if (deleteUserName != message.UserName)
+      {
+        return Unauthorized();
       }
 
       _db.Messages.Remove(message);

@@ -44,7 +44,15 @@ namespace MessageBoardApi.Models
 
       builder.Entity<Message>()
         .HasData(
-          new Message { MessageId = 1, MessageTime = messageTime, MessageName = "beMyLova", MessageBody = "gotta get wit my friends", GroupId = 1, UserId = "ScarySpice"}
+          new Message { MessageId = 1, MessageTime = messageTime, MessageName = "beMyLova", MessageBody = "gotta get wit my friends", GroupId = 1, UserName = "ScarySpice"}
+        );
+      builder.Entity<Message>()
+        .HasData(
+          new Message { MessageId = 50, MessageTime = messageTime, MessageName = "FrancesFarmer", MessageBody = "is now a skater", GroupId = 2, UserName = "PoshSpice"}
+        );
+       builder.Entity<Message>()
+        .HasData(
+          new Message { MessageId = 51, MessageTime = messageTime, MessageName = "TonyHawk", MessageBody = "videogame", GroupId = 2, UserName = "GingerSpice"}
         );
     }
   }

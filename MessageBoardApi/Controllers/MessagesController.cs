@@ -50,12 +50,14 @@ namespace MessageBoardApi.Controllers
 
     //PUT: ..api/Messages/2
     [HttpPut("{id}")]
-    public async Task<IActionResult> Put(int id, Message message)
+    public async Task<IActionResult> Put(int id, Message message, string putUserName)
     {
-      if (id != message.MessageId)
+      if (id != message.MessageId || putUserName != message.UserName)
       {
         return BadRequest();
       }
+
+      // if (user.UserName )
 
       _db.Messages.Update(message);
 

@@ -57,8 +57,6 @@ namespace MessageBoardApi.Controllers
         return BadRequest();
       }
 
-      // if (user.UserName )
-
       _db.Messages.Update(message);
 
       try
@@ -105,7 +103,7 @@ namespace MessageBoardApi.Controllers
       return NoContent();
     }
 
-    [HttpGet("/messages")]
+    [HttpGet("{datetime}")]
     public async Task<ActionResult<IEnumerable<Message>>> GetMessagesByDate(string fromDate, string toDate)
     {
       if (!DateTime.TryParse(fromDate, out DateTime startDate) || !DateTime.TryParse(toDate, out DateTime endDate)) 

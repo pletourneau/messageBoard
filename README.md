@@ -44,7 +44,7 @@ _2. Navigate to where you want to place the cloned directory._
 _3. Clone the repository from the GitHub link by entering in this command:_
 
 > ```
-> $ git clone https://github.com/pletourneau/PierreTrois
+> $ git clone https://github.com/pletourneau/MessageBoardApi
 > ```
 
 _4. Navigate to the project's production directory `MessageBoardApi`, and create a new file called `appsettings.json`._

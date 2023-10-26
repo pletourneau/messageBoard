@@ -53,7 +53,6 @@ _5. Within `appsettings.json`, add the following code, replacing the `uid`, and 
 
 ```json
 {
-  {
   "Logging": {
     "LogLevel": {
       "Default": "Information",
@@ -65,7 +64,7 @@ _5. Within `appsettings.json`, add the following code, replacing the `uid`, and 
     "DefaultConnection": "Server=localhost;Port=3306;database=[YOUR-DATABASE-NAME-HERE];uid=[YOUR-USERNAME-HERE];pwd=[YOUR-PASSWORD-HERE];"
   }
 }
-}
+
 ```
 
 _6. In the terminal, while in the project's production directory `MessageBoardApi`, run the following command. It will utilize the repository's migrations to create and update the database. You may opt to verify that the database has been created successfully in MySQL Workbench._
